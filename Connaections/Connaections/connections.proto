@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package connaections;
+
+option go_package = ".;proto";
+
+import "google/protobuf/empty.proto";
+
+service Connections {
+  rpc Subscribe(google.protobuf.Empty) returns (stream Connection);
+}
+
+message Connection {
+  string srcIP = 1;
+  string srcPort = 2;
+  string srcCountry = 3;
+  string dstIP = 4;
+  string dstPort = 5;
+  string dstCountry = 6;
+}
